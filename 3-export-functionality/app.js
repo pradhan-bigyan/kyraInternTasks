@@ -3,6 +3,7 @@
 
 const express = require('express')
 const app = express()
+const {checkConnection} = require('./db/connect')
 require('dotenv').config()
 
 const incidentsv1 = require('./routes/v1/incidents')
@@ -19,6 +20,7 @@ const port = process.env.PORT || 3000
 
 const start = async () => {
     try {
+        await checkConnection()
         app.listen(port, () => {
             console.log(`Server is listening on port: ${port}...`)
         } )
