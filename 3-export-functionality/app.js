@@ -6,6 +6,9 @@ const app = express()
 const {checkConnection} = require('./db/connect')
 require('dotenv').config()
 
+// .env contails the credentials to connect to postgres DB
+// PORT=....
+
 const incidentsv1 = require('./routes/v1/incidents')
 const incidentsv2 = require('./routes/v2/incidents')
 
