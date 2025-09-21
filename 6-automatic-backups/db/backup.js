@@ -10,7 +10,7 @@ const host = process.env.DB_HOST
 const port = process.env.DB_PORT
 
 const backup = () => {
-    const timestamp = new Date().getTime()
+    const timestamp = new Date().toISOString().replace(':', '_')
     const filename = `database-backup-${timestamp}.pgsql`
     const filepath = path.join('db_backups', filename)
 
@@ -22,15 +22,12 @@ const backup = () => {
 
     console.log(`Starting database backup......`)
 
-    exec(command, { env: { PGPASSWORD: password } }, (err, stdout, stderr) => {
+    exec(command, { env: { PGPASSWORD: password } }, (err) => {
         if (err) {
             console.error('Database Backup Failed due to:', err)
-            console.error('Check the database credentials')
-            console.error('Standard Error:', stderr)
             return
         }
         console.log('Database Backup Successful! File created at:', filepath)
-        console.log('Standard Output:', stdout)
     })
 }
 
