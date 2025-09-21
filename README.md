@@ -1,12 +1,15 @@
-#Things to do before anything else
 
-Run npm i or npm install in every directory except the '1-docs' and '7-architecture....' so that all the required packages are installed.
+# Things to do before anything else
 
-create a .env file and include the following things in every directory except '1-docs' and '2-versioning' and '7-architecture....' 
+## Run npm i or npm install in every directory except the '1-docs' and '7-architecture....' so that all the required packages are installed.
 
-PORT=
-DB_HOST=""
-DB_USER=""
-DB_PASS=""
-DB_NAME=""
-DB_PORT=
+## create a .env file and include the following things in every directory except '1-docs' and '2-versioning' and '7-architecture....' 
+- PORT=
+- DB_HOST=""
+- DB_USER=""
+- DB_PASS=""
+- DB_NAME=""
+- DB_PORT=
+
+
+This repo contains my solutions to task 1 through 7 excluding task 4 and 8.
