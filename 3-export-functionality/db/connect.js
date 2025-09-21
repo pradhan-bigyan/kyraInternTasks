@@ -1,6 +1,12 @@
 const {Pool} = require('pg')
+require('dotenv').config()
 
 // .env contails the credentials to connect to postgres DB
+// DB_HOST=
+// DB_USER=
+// DB_PASS=
+// DB_NAME=
+// DB_PORT=
 
 const pool = new Pool({
     user: process.env.DB_USER,

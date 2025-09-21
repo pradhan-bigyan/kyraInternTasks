@@ -9,7 +9,11 @@ const getIncidents = (req, res) => {
 }
 
 const exportIncidents = async (req, res) => {
-    const {type, severity, startTime, endTime, format} = req.body
+    const type = req.body.type
+    const startTime = req.body.startTime
+    const endTime = req.body.endTime
+    const format = req.body.format
+    const severity = req.body.severity
 
     // Authentication is required before anyother thing. Could be done using jsonwebtoken where userid is decoded from the token and is checked against the streamtape owner id
 
@@ -39,7 +43,7 @@ const exportIncidents = async (req, res) => {
     
     const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : ``
 
-    let query = `SELECT * FROM incidents ${whereClause}`;
+    let query = `SELECT * FROM incidents.incidents ${whereClause}`;
 
     const result = await pool.query(query, values)
 
@@ -64,7 +68,7 @@ const exportIncidents = async (req, res) => {
 
         pdfDoc.pipe(res)
 
-        pdfDoc.fontSize(16).text('Incident Report', { align: center})
+        pdfDoc.fontSize(16).text('Incident Report', { align: 'center'})
         pdfDoc.moveDown()
 
         result.rows.forEach(row => {

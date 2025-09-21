@@ -12,6 +12,9 @@ require('dotenv').config()
 const incidentsv1 = require('./routes/v1/incidents')
 const incidentsv2 = require('./routes/v2/incidents')
 
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
 app.use('/api/v1', incidentsv1)
 app.use('/api/v2', incidentsv2)
 
